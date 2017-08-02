@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище IRCRUSSIAModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="KassOrder">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="Number" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Data" Type="varchar(max)" Nullable="false" />
+          <Property Name="Debet" Type="varchar(max)" Nullable="false" />
+          <Property Name="Kredet" Type="varchar(max)" Nullable="false" />
+          <Property Name="PayerFio" Type="varchar(max)" Nullable="false" />
+          <Property Name="Agent" Type="varchar(max)" Nullable="false" />
+          <Property Name="Rs" Type="varchar(max)" Nullable="false" />
+          <Property Name="Inn" Type="varchar(max)" Nullable="false" />
+          <Property Name="Branch" Type="varchar(max)" Nullable="false" />
+          <Property Name="BankTo" Type="varchar(max)" Nullable="false" />
+          <Property Name="BankToBic" Type="varchar(max)" Nullable="false" />
+          <Property Name="BranchBic" Type="varchar(max)" Nullable="false" />
+          <Property Name="Simvol" Type="varchar(max)" Nullable="false" />
+          <Property Name="Summa" Type="varchar(max)" Nullable="false" />
+          <Property Name="SummaString" Type="varchar(max)" Nullable="false" />
+          <Property Name="Purpose" Type="varchar(max)" Nullable="false" />
+          <Property Name="IsTaxes" Type="bit" Nullable="false" />
+          <Property Name="Id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="KeyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kass" Type="int" />
+        </EntityType>
+        <EntityType Name="KassOrderAccount">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="Number" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Data" Type="varchar(max)" Nullable="false" />
+          <Property Name="Debet" Type="varchar(max)" Nullable="false" />
+          <Property Name="Kredet" Type="varchar(max)" Nullable="false" />
+          <Property Name="PayerFio" Type="varchar(max)" Nullable="false" />
+          <Property Name="Agent" Type="varchar(max)" Nullable="false" />
+          <Property Name="Rs" Type="varchar(max)" Nullable="false" />
+          <Property Name="Inn" Type="varchar(max)" Nullable="false" />
+          <Property Name="Branch" Type="varchar(max)" Nullable="false" />
+          <Property Name="BankTo" Type="varchar(max)" Nullable="false" />
+          <Property Name="BankToBic" Type="varchar(max)" Nullable="false" />
+          <Property Name="BranchBic" Type="varchar(max)" Nullable="false" />
+          <Property Name="Simvol" Type="varchar(max)" Nullable="false" />
+          <Property Name="Summa" Type="varchar(max)" Nullable="false" />
+          <Property Name="SummaString" Type="varchar(max)" Nullable="false" />
+          <Property Name="Purpose" Type="varchar(max)" Nullable="false" />
+          <Property Name="IsTaxes" Type="bit" Nullable="false" />
+          <Property Name="Id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="KeyId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kass" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Plat_por">
+          <Key>
+            <PropertyRef Name="Key_id" />
+          </Key>
+          <Property Name="Data" Type="varchar(max)" Nullable="false" />
+          <Property Name="Number" Type="varchar(max)" Nullable="false" />
+          <Property Name="Summ_propis" Type="varchar(max)" Nullable="false" />
+          <Property Name="Summ" Type="varchar(max)" Nullable="false" />
+          <Property Name="Schet_plat" Type="varchar(max)" Nullable="false" />
+          <Property Name="Bic_plat" Type="varchar(max)" Nullable="false" />
+          <Property Name="K_schet_plat" Type="varchar(max)" Nullable="false" />
+          <Property Name="Bank_plat" Type="varchar(max)" Nullable="false" />
+          <Property Name="Inn_otp" Type="varchar(max)" Nullable="false" />
+          <Property Name="Plat" Type="varchar(max)" Nullable="false" />
+          <Property Name="Bank_pol" Type="varchar(max)" Nullable="false" />
+          <Property Name="Pol" Type="varchar(max)" Nullable="false" />
+          <Property Name="Inn_pol" Type="varchar(max)" Nullable="false" />
+          <Property Name="Kpp_pol" Type="varchar(max)" Nullable="false" />
+          <Property Name="Bic_pol" Type="varchar(max)" Nullable="false" />
+          <Property Name="Schet_pol" Type="varchar(max)" Nullable="false" />
+          <Property Name="K_schet_pol" Type="varchar(max)" Nullable="false" />
+          <Property Name="Nazn_pol" Type="varchar(max)" Nullable="false" />
+          <Property Name="Id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Uin" Type="varchar(max)" />
+          <Property Name="Kbk" Type="varchar(max)" />
+          <Property Name="Okato" Type="varchar(max)" />
+          <Property Name="Nal_osn" Type="varchar(max)" />
+          <Property Name="Nal_per" Type="varchar" MaxLength="50" />
+          <Property Name="Nal_nom" Type="varchar(max)" />
+          <Property Name="Drow_stat" Type="varchar(max)" Nullable="false" />
+          <Property Name="Key_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kass" Type="int" />
+          <Property Name="PayerInn" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Porych">
+          <Key>
+            <PropertyRef Name="key_Id" />
+          </Key>
+          <Property Name="Data" Type="varchar(max)" Nullable="false" />
+          <Property Name="Fio" Type="varchar(max)" Nullable="false" />
+          <Property Name="SummaPlat" Type="varchar(max)" Nullable="false" />
+          <Property Name="SummaPlatString" Type="varchar(max)" Nullable="false" />
+          <Property Name="Adres" Type="varchar(max)" Nullable="false" />
+          <Property Name="Doc" Type="varchar(max)" Nullable="false" />
+          <Property Name="Agent" Type="varchar(max)" Nullable="false" />
+          <Property Name="AgentInn" Type="varchar(max)" Nullable="false" />
+          <Property Name="AgentSc" Type="varchar(max)" Nullable="false" />
+          <Property Name="AgentBank" Type="varchar(max)" Nullable="false" />
+          <Property Name="AgentCor" Type="varchar(max)" Nullable="false" />
+          <Property Name="AgentBic" Type="varchar(max)" Nullable="false" />
+          <Property Name="Purpose" Type="varchar(max)" Nullable="false" />
+          <Property Name="SummaTax" Type="varchar(max)" Nullable="false" />
+          <Property Name="SummaTaxString" Type="varchar(max)" Nullable="false" />
+          <Property Name="SummaAllString" Type="varchar(max)" Nullable="false" />
+          <Property Name="OperatorButi" Type="varchar(max)" />
+          <Property Name="OperatorFio" Type="varchar(max)" />
+          <Property Name="key_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kass" Type="int" />
+          <Property Name="Number" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="StatSost" Type="varchar(max)" />
+          <Property Name="Kbk" Type="varchar(max)" />
+          <Property Name="Okato" Type="varchar(max)" />
+          <Property Name="OsnPlat" Type="varchar(max)" />
+          <Property Name="NalPer" Type="varchar(max)" />
+          <Property Name="NumberDoc" Type="varchar(max)" />
+          <Property Name="DataDoc" Type="varchar(max)" />
+          <Property Name="TypePlat" Type="varchar(max)" />
+          <Property Name="Index" Type="varchar(max)" />
+          <Property Name="Id" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityContainer Name="Хранилище IRCRUSSIAModelContainer">
+          <EntitySet Name="KassOrder" EntityType="Self.KassOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KassOrderAccount" EntityType="Self.KassOrderAccount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Plat_por" EntityType="Self.Plat_por" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Porych" EntityType="Self.Porych" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IRCRUSSIAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="KassOrder">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="Number" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Debet" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Kredet" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PayerFio" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Agent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rs" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Inn" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Branch" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BankTo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BankToBic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BranchBic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Simvol" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Summa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SummaString" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Purpose" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsTaxes" Type="Boolean" Nullable="false" />
+          <Property Name="Id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="KeyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kass" Type="Int32" />
+        </EntityType>
+        <EntityType Name="KassOrderAccount">
+          <Key>
+            <PropertyRef Name="KeyId" />
+          </Key>
+          <Property Name="Number" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Debet" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Kredet" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PayerFio" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Agent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Rs" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Inn" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Branch" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BankTo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BankToBic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BranchBic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Simvol" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Summa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SummaString" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Purpose" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IsTaxes" Type="Boolean" Nullable="false" />
+          <Property Name="Id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="KeyId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kass" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Plat_por">
+          <Key>
+            <PropertyRef Name="Key_id" />
+          </Key>
+          <Property Name="Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Number" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Summ_propis" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Summ" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Schet_plat" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Bic_plat" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="K_schet_plat" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Bank_plat" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Inn_otp" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Plat" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Bank_pol" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pol" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Inn_pol" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Kpp_pol" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Bic_pol" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Schet_pol" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="K_schet_pol" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nazn_pol" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Uin" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Kbk" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Okato" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Nal_osn" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Nal_per" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nal_nom" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Drow_stat" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Key_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kass" Type="Int32" />
+          <Property Name="PayerInn" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Porych">
+          <Key>
+            <PropertyRef Name="key_Id" />
+          </Key>
+          <Property Name="Data" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fio" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SummaPlat" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SummaPlatString" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Doc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Agent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AgentInn" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AgentSc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AgentBank" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AgentCor" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AgentBic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Purpose" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SummaTax" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SummaTaxString" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SummaAllString" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OperatorButi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="OperatorFio" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="key_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kass" Type="Int32" />
+          <Property Name="Number" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="StatSost" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Kbk" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Okato" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="OsnPlat" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NalPer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NumberDoc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DataDoc" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TypePlat" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Index" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Id" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityContainer Name="IRCRUSSIAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="KassOrder" EntityType="Self.KassOrder" />
+          <EntitySet Name="KassOrderAccount" EntityType="Self.KassOrderAccount" />
+          <EntitySet Name="Plat_por" EntityType="Self.Plat_por" />
+          <EntitySet Name="Porych" EntityType="Self.Porych" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище IRCRUSSIAModelContainer" CdmEntityContainer="IRCRUSSIAEntities">
+          <EntitySetMapping Name="KassOrder">
+            <EntityTypeMapping TypeName="IRCRUSSIAModel.KassOrder">
+              <MappingFragment StoreEntitySet="KassOrder">
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Debet" ColumnName="Debet" />
+                <ScalarProperty Name="Kredet" ColumnName="Kredet" />
+                <ScalarProperty Name="PayerFio" ColumnName="PayerFio" />
+                <ScalarProperty Name="Agent" ColumnName="Agent" />
+                <ScalarProperty Name="Rs" ColumnName="Rs" />
+                <ScalarProperty Name="Inn" ColumnName="Inn" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
+                <ScalarProperty Name="BankTo" ColumnName="BankTo" />
+                <ScalarProperty Name="BankToBic" ColumnName="BankToBic" />
+                <ScalarProperty Name="BranchBic" ColumnName="BranchBic" />
+                <ScalarProperty Name="Simvol" ColumnName="Simvol" />
+                <ScalarProperty Name="Summa" ColumnName="Summa" />
+                <ScalarProperty Name="SummaString" ColumnName="SummaString" />
+                <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+                <ScalarProperty Name="IsTaxes" ColumnName="IsTaxes" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+                <ScalarProperty Name="Kass" ColumnName="Kass" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KassOrderAccount">
+            <EntityTypeMapping TypeName="IRCRUSSIAModel.KassOrderAccount">
+              <MappingFragment StoreEntitySet="KassOrderAccount">
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Debet" ColumnName="Debet" />
+                <ScalarProperty Name="Kredet" ColumnName="Kredet" />
+                <ScalarProperty Name="PayerFio" ColumnName="PayerFio" />
+                <ScalarProperty Name="Agent" ColumnName="Agent" />
+                <ScalarProperty Name="Rs" ColumnName="Rs" />
+                <ScalarProperty Name="Inn" ColumnName="Inn" />
+                <ScalarProperty Name="Branch" ColumnName="Branch" />
+                <ScalarProperty Name="BankTo" ColumnName="BankTo" />
+                <ScalarProperty Name="BankToBic" ColumnName="BankToBic" />
+                <ScalarProperty Name="BranchBic" ColumnName="BranchBic" />
+                <ScalarProperty Name="Simvol" ColumnName="Simvol" />
+                <ScalarProperty Name="Summa" ColumnName="Summa" />
+                <ScalarProperty Name="SummaString" ColumnName="SummaString" />
+                <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+                <ScalarProperty Name="IsTaxes" ColumnName="IsTaxes" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+                <ScalarProperty Name="Kass" ColumnName="Kass" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Plat_por">
+            <EntityTypeMapping TypeName="IRCRUSSIAModel.Plat_por">
+              <MappingFragment StoreEntitySet="Plat_por">
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Summ_propis" ColumnName="Summ_propis" />
+                <ScalarProperty Name="Summ" ColumnName="Summ" />
+                <ScalarProperty Name="Schet_plat" ColumnName="Schet_plat" />
+                <ScalarProperty Name="Bic_plat" ColumnName="Bic_plat" />
+                <ScalarProperty Name="K_schet_plat" ColumnName="K_schet_plat" />
+                <ScalarProperty Name="Bank_plat" ColumnName="Bank_plat" />
+                <ScalarProperty Name="Inn_otp" ColumnName="Inn_otp" />
+                <ScalarProperty Name="Plat" ColumnName="Plat" />
+                <ScalarProperty Name="Bank_pol" ColumnName="Bank_pol" />
+                <ScalarProperty Name="Pol" ColumnName="Pol" />
+                <ScalarProperty Name="Inn_pol" ColumnName="Inn_pol" />
+                <ScalarProperty Name="Kpp_pol" ColumnName="Kpp_pol" />
+                <ScalarProperty Name="Bic_pol" ColumnName="Bic_pol" />
+                <ScalarProperty Name="Schet_pol" ColumnName="Schet_pol" />
+                <ScalarProperty Name="K_schet_pol" ColumnName="K_schet_pol" />
+                <ScalarProperty Name="Nazn_pol" ColumnName="Nazn_pol" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Uin" ColumnName="Uin" />
+                <ScalarProperty Name="Kbk" ColumnName="Kbk" />
+                <ScalarProperty Name="Okato" ColumnName="Okato" />
+                <ScalarProperty Name="Nal_osn" ColumnName="Nal_osn" />
+                <ScalarProperty Name="Nal_per" ColumnName="Nal_per" />
+                <ScalarProperty Name="Nal_nom" ColumnName="Nal_nom" />
+                <ScalarProperty Name="Drow_stat" ColumnName="Drow_stat" />
+                <ScalarProperty Name="Key_id" ColumnName="Key_id" />
+                <ScalarProperty Name="Kass" ColumnName="Kass" />
+                <ScalarProperty Name="PayerInn" ColumnName="PayerInn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Porych">
+            <EntityTypeMapping TypeName="IRCRUSSIAModel.Porych">
+              <MappingFragment StoreEntitySet="Porych">
+                <ScalarProperty Name="Data" ColumnName="Data" />
+                <ScalarProperty Name="Fio" ColumnName="Fio" />
+                <ScalarProperty Name="SummaPlat" ColumnName="SummaPlat" />
+                <ScalarProperty Name="SummaPlatString" ColumnName="SummaPlatString" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Doc" ColumnName="Doc" />
+                <ScalarProperty Name="Agent" ColumnName="Agent" />
+                <ScalarProperty Name="AgentInn" ColumnName="AgentInn" />
+                <ScalarProperty Name="AgentSc" ColumnName="AgentSc" />
+                <ScalarProperty Name="AgentBank" ColumnName="AgentBank" />
+                <ScalarProperty Name="AgentCor" ColumnName="AgentCor" />
+                <ScalarProperty Name="AgentBic" ColumnName="AgentBic" />
+                <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+                <ScalarProperty Name="SummaTax" ColumnName="SummaTax" />
+                <ScalarProperty Name="SummaTaxString" ColumnName="SummaTaxString" />
+                <ScalarProperty Name="SummaAllString" ColumnName="SummaAllString" />
+                <ScalarProperty Name="OperatorButi" ColumnName="OperatorButi" />
+                <ScalarProperty Name="OperatorFio" ColumnName="OperatorFio" />
+                <ScalarProperty Name="key_Id" ColumnName="key_Id" />
+                <ScalarProperty Name="Kass" ColumnName="Kass" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="StatSost" ColumnName="StatSost" />
+                <ScalarProperty Name="Kbk" ColumnName="Kbk" />
+                <ScalarProperty Name="Okato" ColumnName="Okato" />
+                <ScalarProperty Name="OsnPlat" ColumnName="OsnPlat" />
+                <ScalarProperty Name="NalPer" ColumnName="NalPer" />
+                <ScalarProperty Name="NumberDoc" ColumnName="NumberDoc" />
+                <ScalarProperty Name="DataDoc" ColumnName="DataDoc" />
+                <ScalarProperty Name="TypePlat" ColumnName="TypePlat" />
+                <ScalarProperty Name="Index" ColumnName="Index" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,368 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3311B39E-4DA4-44D8-BBBF-3EB2F3763934}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GateWay</RootNamespace>
+    <AssemblyName>GateWay</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common">
+      <HintPath>..\Common\bin\Debug\Common.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entity\BillingModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BillingModel.edmx</DependentUpon>
+      <LastGenOutput>BillingModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\BillingModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>BillingModel.edmx</DependentUpon>
+      <LastGenOutput>BillingModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\DictionaryModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DictionaryModel.Context.cs</LastGenOutput>
+      <DependentUpon>DictionaryModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Entity\DictionaryModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DictionaryModel.edmx</DependentUpon>
+      <LastGenOutput>DictionaryModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\FizikiModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FizikiModel.edmx</DependentUpon>
+      <LastGenOutput>FizikiModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\FizikiModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FizikiModel.edmx</DependentUpon>
+      <LastGenOutput>FizikiModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\LogModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LogModel.edmx</DependentUpon>
+      <LastGenOutput>LogModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\LogModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LogModel.edmx</DependentUpon>
+      <LastGenOutput>LogModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\RussiaModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RussiaModel.edmx</DependentUpon>
+      <LastGenOutput>RussiaModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entity\RussiaModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RussiaModel.edmx</DependentUpon>
+      <LastGenOutput>RussiaModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Service1.svc" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseInterfaces\IAgent.cs" />
+    <Compile Include="BaseInterfaces\IKassa.cs" />
+    <Compile Include="BaseInterfaces\IKlient.cs" />
+    <Compile Include="BaseInterfaces\IPay.cs" />
+    <Compile Include="Diasoft\DiasoftTranzaction.cs" />
+    <Compile Include="Diasoft\DocumentCreater.cs" />
+    <Compile Include="Diasoft\KassOrder.cs" />
+    <Compile Include="Diasoft\PlatPoruch.cs" />
+    <Compile Include="Entity\AGENT.cs">
+      <DependentUpon>DictionaryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\AgentRussia.cs">
+      <DependentUpon>DictionaryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Altfater.cs">
+      <DependentUpon>BillingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\BillingModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BillingModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\BillingModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BillingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\BillingModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BillingModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\BUDJET_SHABLON.cs">
+      <DependentUpon>FizikiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\DictionaryModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DictionaryModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\DictionaryModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DictionaryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\DictionaryModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DictionaryModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\DocumentDictionary.cs">
+      <DependentUpon>DictionaryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\FizikiModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FizikiModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\FizikiModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FizikiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\FizikiModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FizikiModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\KASSESDB_.cs">
+      <DependentUpon>DictionaryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\KassOrder.cs">
+      <DependentUpon>RussiaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\KassOrderAccount.cs">
+      <DependentUpon>RussiaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\KassSymbol.cs">
+      <DependentUpon>DictionaryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\KLIENTS.cs">
+      <DependentUpon>DictionaryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\KLIENTS_FIZ.cs">
+      <DependentUpon>FizikiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\KODPL.cs">
+      <DependentUpon>DictionaryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Loging.cs">
+      <DependentUpon>LogModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\LogModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\LogModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\LogModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\ModelInitializer.cs" />
+    <Compile Include="Entity\PACHKA.cs">
+      <DependentUpon>DictionaryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Plat_por.cs">
+      <DependentUpon>RussiaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\Porych.cs">
+      <DependentUpon>RussiaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\RosmedProduct.cs">
+      <DependentUpon>DictionaryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\RussiaModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RussiaModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\RussiaModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RussiaModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\RussiaModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RussiaModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\SpecSymbol.cs">
+      <DependentUpon>DictionaryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\STORNO_FIZ.cs">
+      <DependentUpon>FizikiModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\TaxPeriod.cs">
+      <DependentUpon>DictionaryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\TaxReason.cs">
+      <DependentUpon>DictionaryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Log\Logger.cs" />
+    <Compile Include="PaymentToOrganization\Agent.cs" />
+    <Compile Include="PaymentToOrganization\Kassa.cs" />
+    <Compile Include="PaymentToOrganization\Klient.cs" />
+    <Compile Include="PaymentToOrganization\Pay.cs" />
+    <Compile Include="Service1.svc.cs">
+      <DependentUpon>Service1.svc</DependentUpon>
+    </Compile>
+    <Compile Include="IService1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Entity\DictionaryModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DictionaryModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Entity\DictionaryModel.edmx.diagram">
+      <DependentUpon>DictionaryModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="packages.config" />
+    <EntityDeploy Include="Entity\FizikiModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FizikiModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Entity\FizikiModel.edmx.diagram">
+      <DependentUpon>FizikiModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Entity\RussiaModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RussiaModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Entity\RussiaModel.edmx.diagram">
+      <DependentUpon>RussiaModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Entity\BillingModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BillingModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Entity\BillingModel.edmx.diagram">
+      <DependentUpon>BillingModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Entity\LogModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LogModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Entity\LogModel.edmx.diagram">
+      <DependentUpon>LogModel.edmx</DependentUpon>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>13626</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:13626/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

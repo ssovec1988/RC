@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище EnergoBillingModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Altfater">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="FIO" Type="nvarchar" MaxLength="255" />
+          <Property Name="LS" Type="nvarchar" MaxLength="255" />
+          <Property Name="ULICA" Type="nvarchar" MaxLength="255" />
+          <Property Name="NOMDOMA" Type="nvarchar" MaxLength="255" />
+          <Property Name="NOMKWAR" Type="nvarchar" MaxLength="255" />
+          <Property Name="ADRESS" Type="float" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "EnergoBilling.dbo.Dept" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Dept">
+          <Property Name="Agent" Type="int" />
+          <Property Name="Ls" Type="varchar(max)" />
+          <Property Name="Ammount" Type="float" />
+        </EntityType>-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "EnergoBilling.dbo.KrimTeplo" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="KrimTeplo">
+          <Property Name="PAYERIDENT" Type="varchar" MaxLength="18" />
+          <Property Name="FIO" Type="varchar" MaxLength="50" />
+          <Property Name="STREET" Type="varchar" MaxLength="30" />
+          <Property Name="BUILDING" Type="varchar" MaxLength="10" />
+          <Property Name="FLAT" Type="varchar" MaxLength="10" />
+          <Property Name="SERVICECOD" Type="varchar" MaxLength="15" />
+          <Property Name="LS" Type="varchar" MaxLength="11" />
+          <Property Name="SUM" Type="float" />
+          <Property Name="VDMID1" Type="float" />
+          <Property Name="VDMPOK1" Type="float" />
+          <Property Name="VDMID2" Type="float" />
+          <Property Name="VDMPOK2" Type="float" />
+          <Property Name="VDMID3" Type="float" />
+          <Property Name="VDMPOK3" Type="float" />
+        </EntityType>-->
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "EnergoBilling.dbo.KrimVoda" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="KrimVoda">
+          <Property Name="PAYERIDENT" Type="varchar" MaxLength="50" />
+          <Property Name="STREETCODE" Type="varchar" MaxLength="15" />
+          <Property Name="STREET" Type="varchar" MaxLength="100" />
+          <Property Name="BUILDING" Type="varchar" MaxLength="10" />
+          <Property Name="FLAT" Type="varchar" MaxLength="10" />
+          <Property Name="SERVICECOD" Type="varchar" MaxLength="15" />
+          <Property Name="LS" Type="varchar" MaxLength="18" />
+          <Property Name="SUM" Type="float" />
+          <Property Name="YEAR" Type="float" />
+          <Property Name="MONTH" Type="float" />
+          <Property Name="VDMID1" Type="float" />
+          <Property Name="VDMMU1" Type="varchar" MaxLength="15" />
+          <Property Name="VDMPOK1" Type="float" />
+          <Property Name="VDMID2" Type="float" />
+          <Property Name="VDMMU2" Type="varchar" MaxLength="15" />
+          <Property Name="VDMPOK2" Type="float" />
+          <Property Name="VDMID3" Type="float" />
+          <Property Name="VDMMU3" Type="varchar" MaxLength="15" />
+          <Property Name="VDMPOK3" Type="float" />
+          <Property Name="VDMID4" Type="float" />
+          <Property Name="VDMMU4" Type="varchar" MaxLength="15" />
+          <Property Name="VDMPOK4" Type="float" />
+          <Property Name="FIO" Type="varchar" MaxLength="5" />
+        </EntityType>-->
+        <EntityContainer Name="Хранилище EnergoBillingModelContainer">
+          <EntitySet Name="Altfater" EntityType="Self.Altfater" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EnergoBillingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Altfater">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="FIO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ULICA" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NOMDOMA" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NOMKWAR" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ADRESS" Type="Double" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityContainer Name="EnergoBillingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Altfater" EntityType="Self.Altfater" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище EnergoBillingModelContainer" CdmEntityContainer="EnergoBillingEntities">
+          <EntitySetMapping Name="Altfater">
+            <EntityTypeMapping TypeName="EnergoBillingModel.Altfater">
+              <MappingFragment StoreEntitySet="Altfater">
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="LS" ColumnName="LS" />
+                <ScalarProperty Name="ULICA" ColumnName="ULICA" />
+                <ScalarProperty Name="NOMDOMA" ColumnName="NOMDOMA" />
+                <ScalarProperty Name="NOMKWAR" ColumnName="NOMKWAR" />
+                <ScalarProperty Name="ADRESS" ColumnName="ADRESS" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

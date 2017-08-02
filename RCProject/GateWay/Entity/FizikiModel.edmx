@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище IRCFIZIKIModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BUDJET_SHABLON">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="INN" Type="varchar(max)" Nullable="false" />
+          <Property Name="RS" Type="varchar(max)" Nullable="false" />
+          <Property Name="KPP" Type="varchar(max)" />
+          <Property Name="BIC" Type="varchar(max)" Nullable="false" />
+          <Property Name="BANK" Type="varchar(max)" Nullable="false" />
+          <Property Name="KBK" Type="varchar(max)" />
+          <Property Name="OKATO" Type="varchar(max)" />
+          <Property Name="PURPOSE" Type="varchar(max)" Nullable="false" />
+          <Property Name="TAXNUMBER" Type="varchar(max)" />
+          <Property Name="AGENT" Type="varchar(max)" Nullable="false" />
+          <Property Name="UIN" Type="varchar(max)" />
+          <Property Name="DOCUMENTID" Type="float" Nullable="false" />
+          <Property Name="PERSONID" Type="float" Nullable="false" />
+          <Property Name="FIO" Type="varchar(max)" Nullable="false" />
+          <Property Name="ADRESS" Type="varchar(max)" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KLIENTS_FIZ">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="PersonID" Type="float" Nullable="false" />
+          <Property Name="FIO" Type="varchar(max)" Nullable="false" />
+          <Property Name="ADRES" Type="varchar(max)" Nullable="false" />
+          <Property Name="GOROD" Type="varchar(max)" />
+          <Property Name="ULICA" Type="varchar(max)" />
+          <Property Name="DOM" Type="varchar(max)" />
+          <Property Name="KVARTIRA" Type="varchar(max)" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocumentId" Type="float" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "IRCFIZIKI.dbo.STORNO_FIZ" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="STORNO_FIZ">
+          <Key>
+            <PropertyRef Name="NUMBER" />
+            <PropertyRef Name="DEBET" />
+            <PropertyRef Name="KREDIT" />
+            <PropertyRef Name="NAZN" />
+            <PropertyRef Name="PACHKA" />
+            <PropertyRef Name="SUMMA" />
+            <PropertyRef Name="N_KASS" />
+            <PropertyRef Name="N_AGENT" />
+            <PropertyRef Name="LS" />
+            <PropertyRef Name="N_KLI" />
+            <PropertyRef Name="DATA" />
+            <PropertyRef Name="STATUS" />
+            <PropertyRef Name="PACKET_IDENT" />
+            <PropertyRef Name="BRANCH" />
+            <PropertyRef Name="KASSIR" />
+          </Key>
+          <Property Name="NUMBER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DEBET" Type="varchar(max)" Nullable="false" />
+          <Property Name="KREDIT" Type="varchar(max)" Nullable="false" />
+          <Property Name="NAZN" Type="varchar(max)" Nullable="false" />
+          <Property Name="PACHKA" Type="varchar(max)" Nullable="false" />
+          <Property Name="SUMMA" Type="float" Nullable="false" />
+          <Property Name="N_KASS" Type="int" Nullable="false" />
+          <Property Name="N_AGENT" Type="int" Nullable="false" />
+          <Property Name="LS" Type="varchar(max)" Nullable="false" />
+          <Property Name="N_KLI" Type="float" Nullable="false" />
+          <Property Name="DATA" Type="varchar(max)" Nullable="false" />
+          <Property Name="STATUS" Type="int" Nullable="false" />
+          <Property Name="PACKET_IDENT" Type="varchar(max)" Nullable="false" />
+          <Property Name="BRANCH" Type="varchar(max)" Nullable="false" />
+          <Property Name="KASSIR" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Хранилище IRCFIZIKIModelContainer">
+          <EntitySet Name="BUDJET_SHABLON" EntityType="Self.BUDJET_SHABLON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KLIENTS_FIZ" EntityType="Self.KLIENTS_FIZ" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STORNO_FIZ" EntityType="Self.STORNO_FIZ" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [STORNO_FIZ].[NUMBER] AS [NUMBER], 
+    [STORNO_FIZ].[DEBET] AS [DEBET], 
+    [STORNO_FIZ].[KREDIT] AS [KREDIT], 
+    [STORNO_FIZ].[NAZN] AS [NAZN], 
+    [STORNO_FIZ].[PACHKA] AS [PACHKA], 
+    [STORNO_FIZ].[SUMMA] AS [SUMMA], 
+    [STORNO_FIZ].[N_KASS] AS [N_KASS], 
+    [STORNO_FIZ].[N_AGENT] AS [N_AGENT], 
+    [STORNO_FIZ].[LS] AS [LS], 
+    [STORNO_FIZ].[N_KLI] AS [N_KLI], 
+    [STORNO_FIZ].[DATA] AS [DATA], 
+    [STORNO_FIZ].[STATUS] AS [STATUS], 
+    [STORNO_FIZ].[PACKET_IDENT] AS [PACKET_IDENT], 
+    [STORNO_FIZ].[BRANCH] AS [BRANCH], 
+    [STORNO_FIZ].[KASSIR] AS [KASSIR]
+    FROM [dbo].[STORNO_FIZ] AS [STORNO_FIZ]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IRCFIZIKIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BUDJET_SHABLON">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="INN" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KPP" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BIC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BANK" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KBK" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="OKATO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PURPOSE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TAXNUMBER" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AGENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UIN" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DOCUMENTID" Type="Double" Nullable="false" />
+          <Property Name="PERSONID" Type="Double" Nullable="false" />
+          <Property Name="FIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ADRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="KLIENTS_FIZ">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="PersonID" Type="Double" Nullable="false" />
+          <Property Name="FIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ADRES" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GOROD" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ULICA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DOM" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="KVARTIRA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocumentId" Type="Double" />
+        </EntityType>
+        <EntityType Name="STORNO_FIZ">
+          <Key>
+            <PropertyRef Name="NUMBER" />
+            <PropertyRef Name="DEBET" />
+            <PropertyRef Name="KREDIT" />
+            <PropertyRef Name="NAZN" />
+            <PropertyRef Name="PACHKA" />
+            <PropertyRef Name="SUMMA" />
+            <PropertyRef Name="N_KASS" />
+            <PropertyRef Name="N_AGENT" />
+            <PropertyRef Name="LS" />
+            <PropertyRef Name="N_KLI" />
+            <PropertyRef Name="DATA" />
+            <PropertyRef Name="STATUS" />
+            <PropertyRef Name="PACKET_IDENT" />
+            <PropertyRef Name="BRANCH" />
+            <PropertyRef Name="KASSIR" />
+          </Key>
+          <Property Name="NUMBER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DEBET" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KREDIT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NAZN" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PACHKA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SUMMA" Type="Double" Nullable="false" />
+          <Property Name="N_KASS" Type="Int32" Nullable="false" />
+          <Property Name="N_AGENT" Type="Int32" Nullable="false" />
+          <Property Name="LS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="N_KLI" Type="Double" Nullable="false" />
+          <Property Name="DATA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="STATUS" Type="Int32" Nullable="false" />
+          <Property Name="PACKET_IDENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BRANCH" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KASSIR" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="IRCFIZIKIEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BUDJET_SHABLON" EntityType="Self.BUDJET_SHABLON" />
+          <EntitySet Name="KLIENTS_FIZ" EntityType="Self.KLIENTS_FIZ" />
+          <EntitySet Name="STORNO_FIZ" EntityType="Self.STORNO_FIZ" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище IRCFIZIKIModelContainer" CdmEntityContainer="IRCFIZIKIEntities">
+          <EntitySetMapping Name="BUDJET_SHABLON">
+            <EntityTypeMapping TypeName="IRCFIZIKIModel.BUDJET_SHABLON">
+              <MappingFragment StoreEntitySet="BUDJET_SHABLON">
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="RS" ColumnName="RS" />
+                <ScalarProperty Name="KPP" ColumnName="KPP" />
+                <ScalarProperty Name="BIC" ColumnName="BIC" />
+                <ScalarProperty Name="BANK" ColumnName="BANK" />
+                <ScalarProperty Name="KBK" ColumnName="KBK" />
+                <ScalarProperty Name="OKATO" ColumnName="OKATO" />
+                <ScalarProperty Name="PURPOSE" ColumnName="PURPOSE" />
+                <ScalarProperty Name="TAXNUMBER" ColumnName="TAXNUMBER" />
+                <ScalarProperty Name="AGENT" ColumnName="AGENT" />
+                <ScalarProperty Name="UIN" ColumnName="UIN" />
+                <ScalarProperty Name="DOCUMENTID" ColumnName="DOCUMENTID" />
+                <ScalarProperty Name="PERSONID" ColumnName="PERSONID" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="ADRESS" ColumnName="ADRESS" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KLIENTS_FIZ">
+            <EntityTypeMapping TypeName="IRCFIZIKIModel.KLIENTS_FIZ">
+              <MappingFragment StoreEntitySet="KLIENTS_FIZ">
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="ADRES" ColumnName="ADRES" />
+                <ScalarProperty Name="GOROD" ColumnName="GOROD" />
+                <ScalarProperty Name="ULICA" ColumnName="ULICA" />
+                <ScalarProperty Name="DOM" ColumnName="DOM" />
+                <ScalarProperty Name="KVARTIRA" ColumnName="KVARTIRA" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STORNO_FIZ">
+            <EntityTypeMapping TypeName="IRCFIZIKIModel.STORNO_FIZ">
+              <MappingFragment StoreEntitySet="STORNO_FIZ">
+                <ScalarProperty Name="NUMBER" ColumnName="NUMBER" />
+                <ScalarProperty Name="DEBET" ColumnName="DEBET" />
+                <ScalarProperty Name="KREDIT" ColumnName="KREDIT" />
+                <ScalarProperty Name="NAZN" ColumnName="NAZN" />
+                <ScalarProperty Name="PACHKA" ColumnName="PACHKA" />
+                <ScalarProperty Name="SUMMA" ColumnName="SUMMA" />
+                <ScalarProperty Name="N_KASS" ColumnName="N_KASS" />
+                <ScalarProperty Name="N_AGENT" ColumnName="N_AGENT" />
+                <ScalarProperty Name="LS" ColumnName="LS" />
+                <ScalarProperty Name="N_KLI" ColumnName="N_KLI" />
+                <ScalarProperty Name="DATA" ColumnName="DATA" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="PACKET_IDENT" ColumnName="PACKET_IDENT" />
+                <ScalarProperty Name="BRANCH" ColumnName="BRANCH" />
+                <ScalarProperty Name="KASSIR" ColumnName="KASSIR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

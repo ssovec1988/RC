@@ -1,0 +1,583 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище IRCDICTIONARYModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AGENT">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="ID_SERV" Type="int" Nullable="false" />
+          <Property Name="N_SERV" Type="varchar(max)" Nullable="false" />
+          <Property Name="ID_SYST" Type="int" Nullable="false" />
+          <Property Name="N_SYST" Type="varchar(max)" Nullable="false" />
+          <Property Name="TAX3" Type="real" Nullable="false" />
+          <Property Name="TAX4" Type="real" Nullable="false" />
+          <Property Name="KOD_PL" Type="int" Nullable="false" />
+          <Property Name="INN" Type="varchar(max)" Nullable="false" />
+          <Property Name="RSRUB" Type="varchar(max)" Nullable="false" />
+          <Property Name="KORSC" Type="varchar(max)" Nullable="false" />
+          <Property Name="BIC" Type="varchar(max)" Nullable="false" />
+          <Property Name="BANKRUB" Type="varchar(max)" Nullable="false" />
+          <Property Name="TRANZIT" Type="varchar(max)" Nullable="false" />
+          <Property Name="FULL_NAME" Type="varchar(max)" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar(max)" Nullable="false" />
+          <Property Name="DOP_NAZN" Type="varchar(max)" Nullable="false" />
+          <Property Name="KASS_SIMVOL" Type="varchar(max)" Nullable="false" />
+          <Property Name="REGION" Type="int" />
+          <Property Name="KEY_REGION" Type="varchar(max)" />
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ContractNumber" Type="varchar" MaxLength="255" />
+          <Property Name="MaxCommission" Type="real" />
+          <Property Name="OKATO" Type="varchar(max)" />
+          <Property Name="KBK" Type="varchar(max)" />
+          <Property Name="KPP" Type="varchar(max)" />
+          <Property Name="LS" Type="varchar(max)" />
+          <Property Name="KOMUN" Type="int" />
+        </EntityType>
+        <EntityType Name="AgentRussia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Inn" Type="float" />
+          <Property Name="Kpp" Type="float" />
+          <Property Name="RS" Type="nvarchar" MaxLength="255" />
+          <Property Name="Bic" Type="nvarchar" MaxLength="255" />
+          <Property Name="Ks" Type="nvarchar" MaxLength="255" />
+          <Property Name="Kbk" Type="nvarchar" MaxLength="255" />
+          <Property Name="Okato" Type="nvarchar" MaxLength="255" />
+          <Property Name="KassFlag" Type="int" />
+          <Property Name="TaxPercent" Type="float" />
+          <Property Name="TaxMin" Type="float" />
+          <Property Name="TaxMax" Type="float" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DocumentDictionary">
+          <Key>
+            <PropertyRef Name="Key_id" />
+          </Key>
+          <Property Name="NUMBER" Type="varchar(max)" />
+          <Property Name="DOCUMENT" Type="varchar(max)" />
+          <Property Name="Key_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "IRCDICTIONARY.dbo.DrawnerStatus" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="DrawnerStatus">
+          <Property Name="DS" Type="nvarchar" MaxLength="255" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+        <EntityType Name="KASSESDB$">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="ID_SYST" Type="float" />
+          <Property Name="NP" Type="float" />
+          <Property Name="PACHKA" Type="nvarchar" MaxLength="255" />
+          <Property Name="SC" Type="nvarchar" MaxLength="255" />
+          <Property Name="KOMIS_S_KL" Type="nvarchar" MaxLength="255" />
+          <Property Name="PART" Type="float" />
+          <Property Name="CITY" Type="nvarchar" MaxLength="255" />
+          <Property Name="CLOSE" Type="float" />
+          <Property Name="AVTOSALON" Type="int" />
+          <Property Name="IsOKVKU" Type="int" />
+          <Property Name="PACHKA_VNESH" Type="varchar(max)" />
+          <Property Name="TRANZIT_VNESH" Type="varchar(max)" />
+          <Property Name="NDS_KOMISS" Type="varchar(max)" />
+          <Property Name="NDS_SCH" Type="varchar(max)" />
+          <Property Name="VALUT_SCH" Type="varchar(max)" />
+          <Property Name="VALUT_SCH_E" Type="varchar(max)" />
+          <Property Name="ROSMED" Type="varchar(max)" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FilialId" Type="int" />
+          <Property Name="KOMISS_P" Type="varchar(max)" />
+          <Property Name="KOMISS_SC" Type="varchar(max)" />
+          <Property Name="PACHKA_VNUT" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="KassSymbol">
+          <Key>
+            <PropertyRef Name="Key_id" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Symbol" Type="varchar(max)" />
+          <Property Name="Key_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="KLIENTS">
+          <Key>
+            <PropertyRef Name="NUMBER" />
+          </Key>
+          <Property Name="NUMBER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FAMILIYA" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IMYA" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="OTCHESTVO" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="GOROD" Type="varchar(max)" />
+          <Property Name="ULICA" Type="nvarchar(max)" />
+          <Property Name="DOM" Type="nvarchar(max)" />
+          <Property Name="KVARTIRA" Type="nvarchar(max)" />
+          <Property Name="CODE" Type="int" />
+          <Property Name="TELEFON" Type="varchar(max)" />
+          <Property Name="PASPORT_S" Type="varchar(max)" />
+          <Property Name="PASPORT_N" Type="varchar(max)" />
+          <Property Name="BIRTHDAY" Type="varchar(max)" />
+          <Property Name="DiasoftId" Type="float" />
+          <Property Name="FULL_NAME" Type="nvarchar(max)" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="FULL_ADRES" Type="nvarchar(max)" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="KODPL">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="KOD" Type="int" Nullable="false" />
+          <Property Name="USLUGA" Type="varchar(max)" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PACHKA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="PACHKA" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="ADDRESS" Type="varchar(max)" Nullable="false" />
+          <Property Name="ROSMED" Type="varchar(max)" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "IRCDICTIONARY.dbo.RosmedProduct" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="RosmedProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Series" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Series" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SpecSymbol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Symbol" Type="varchar(max)" Nullable="false" />
+          <Property Name="Name" Type="varchar(max)" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TaxPeriod">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Period" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TaxReason">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Reason" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Хранилище IRCDICTIONARYModelContainer">
+          <EntitySet Name="AGENT" EntityType="Self.AGENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AgentRussia" EntityType="Self.AgentRussia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DocumentDictionary" EntityType="Self.DocumentDictionary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KASSESDB$" EntityType="Self.KASSESDB$" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KassSymbol" EntityType="Self.KassSymbol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KLIENTS" EntityType="Self.KLIENTS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KODPL" EntityType="Self.KODPL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PACHKA" EntityType="Self.PACHKA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SpecSymbol" EntityType="Self.SpecSymbol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaxPeriod" EntityType="Self.TaxPeriod" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaxReason" EntityType="Self.TaxReason" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RosmedProduct" EntityType="Self.RosmedProduct" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RosmedProduct].[Id] AS [Id], 
+    [RosmedProduct].[Series] AS [Series]
+    FROM [dbo].[RosmedProduct] AS [RosmedProduct]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IRCDICTIONARYModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AGENT">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="ID_SERV" Type="Int32" Nullable="false" />
+          <Property Name="N_SERV" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_SYST" Type="Int32" Nullable="false" />
+          <Property Name="N_SYST" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TAX3" Type="Single" Nullable="false" />
+          <Property Name="TAX4" Type="Single" Nullable="false" />
+          <Property Name="KOD_PL" Type="Int32" Nullable="false" />
+          <Property Name="INN" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RSRUB" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KORSC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BIC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BANKRUB" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TRANZIT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FULL_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOP_NAZN" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KASS_SIMVOL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="REGION" Type="Int32" />
+          <Property Name="KEY_REGION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ContractNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="MaxCommission" Type="Single" />
+          <Property Name="OKATO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="KBK" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="KPP" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="KOMUN" Type="Int32" />
+        </EntityType>
+        <EntityType Name="AgentRussia">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Inn" Type="Double" />
+          <Property Name="Kpp" Type="Double" />
+          <Property Name="RS" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Bic" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Ks" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Kbk" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Okato" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="KassFlag" Type="Int32" />
+          <Property Name="TaxPercent" Type="Double" />
+          <Property Name="TaxMin" Type="Double" />
+          <Property Name="TaxMax" Type="Double" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="DocumentDictionary">
+          <Key>
+            <PropertyRef Name="Key_id" />
+          </Key>
+          <Property Name="NUMBER" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DOCUMENT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Key_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="KASSESDB_">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="ID_SYST" Type="Double" />
+          <Property Name="NP" Type="Double" />
+          <Property Name="PACHKA" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SC" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="KOMIS_S_KL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PART" Type="Double" />
+          <Property Name="CITY" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CLOSE" Type="Double" />
+          <Property Name="AVTOSALON" Type="Int32" />
+          <Property Name="IsOKVKU" Type="Int32" />
+          <Property Name="PACHKA_VNESH" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TRANZIT_VNESH" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NDS_KOMISS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NDS_SCH" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="VALUT_SCH" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="VALUT_SCH_E" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ROSMED" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FilialId" Type="Int32" />
+          <Property Name="KOMISS_P" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="KOMISS_SC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PACHKA_VNUT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="KassSymbol">
+          <Key>
+            <PropertyRef Name="Key_id" />
+          </Key>
+          <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Symbol" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Key_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="KLIENTS">
+          <Key>
+            <PropertyRef Name="NUMBER" />
+          </Key>
+          <Property Name="NUMBER" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FAMILIYA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IMYA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OTCHESTVO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GOROD" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ULICA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DOM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="KVARTIRA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CODE" Type="Int32" />
+          <Property Name="TELEFON" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PASPORT_S" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PASPORT_N" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BIRTHDAY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DiasoftId" Type="Double" />
+          <Property Name="FULL_NAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="FULL_ADRES" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="KODPL">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="KOD" Type="Int32" Nullable="false" />
+          <Property Name="USLUGA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="PACHKA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="PACHKA1" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ROSMED" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="SpecSymbol">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Symbol" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TaxPeriod">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Period" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TaxReason">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Reason" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RosmedProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Series" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Series" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="IRCDICTIONARYEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AGENT" EntityType="Self.AGENT" />
+          <EntitySet Name="AgentRussia" EntityType="Self.AgentRussia" />
+          <EntitySet Name="DocumentDictionary" EntityType="Self.DocumentDictionary" />
+          <EntitySet Name="KASSESDB_" EntityType="Self.KASSESDB_" />
+          <EntitySet Name="KassSymbol" EntityType="Self.KassSymbol" />
+          <EntitySet Name="KLIENTS" EntityType="Self.KLIENTS" />
+          <EntitySet Name="KODPL" EntityType="Self.KODPL" />
+          <EntitySet Name="PACHKA" EntityType="Self.PACHKA" />
+          <EntitySet Name="SpecSymbol" EntityType="Self.SpecSymbol" />
+          <EntitySet Name="TaxPeriod" EntityType="Self.TaxPeriod" />
+          <EntitySet Name="TaxReason" EntityType="Self.TaxReason" />
+          <EntitySet Name="RosmedProduct" EntityType="Self.RosmedProduct" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище IRCDICTIONARYModelContainer" CdmEntityContainer="IRCDICTIONARYEntities">
+          <EntitySetMapping Name="AGENT">
+            <EntityTypeMapping TypeName="IRCDICTIONARYModel.AGENT">
+              <MappingFragment StoreEntitySet="AGENT">
+                <ScalarProperty Name="ID_SERV" ColumnName="ID_SERV" />
+                <ScalarProperty Name="N_SERV" ColumnName="N_SERV" />
+                <ScalarProperty Name="ID_SYST" ColumnName="ID_SYST" />
+                <ScalarProperty Name="N_SYST" ColumnName="N_SYST" />
+                <ScalarProperty Name="TAX3" ColumnName="TAX3" />
+                <ScalarProperty Name="TAX4" ColumnName="TAX4" />
+                <ScalarProperty Name="KOD_PL" ColumnName="KOD_PL" />
+                <ScalarProperty Name="INN" ColumnName="INN" />
+                <ScalarProperty Name="RSRUB" ColumnName="RSRUB" />
+                <ScalarProperty Name="KORSC" ColumnName="KORSC" />
+                <ScalarProperty Name="BIC" ColumnName="BIC" />
+                <ScalarProperty Name="BANKRUB" ColumnName="BANKRUB" />
+                <ScalarProperty Name="TRANZIT" ColumnName="TRANZIT" />
+                <ScalarProperty Name="FULL_NAME" ColumnName="FULL_NAME" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="DOP_NAZN" ColumnName="DOP_NAZN" />
+                <ScalarProperty Name="KASS_SIMVOL" ColumnName="KASS_SIMVOL" />
+                <ScalarProperty Name="REGION" ColumnName="REGION" />
+                <ScalarProperty Name="KEY_REGION" ColumnName="KEY_REGION" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ContractNumber" ColumnName="ContractNumber" />
+                <ScalarProperty Name="MaxCommission" ColumnName="MaxCommission" />
+                <ScalarProperty Name="OKATO" ColumnName="OKATO" />
+                <ScalarProperty Name="KBK" ColumnName="KBK" />
+                <ScalarProperty Name="KPP" ColumnName="KPP" />
+                <ScalarProperty Name="LS" ColumnName="LS" />
+                <ScalarProperty Name="KOMUN" ColumnName="KOMUN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AgentRussia">
+            <EntityTypeMapping TypeName="IRCDICTIONARYModel.AgentRussia">
+              <MappingFragment StoreEntitySet="AgentRussia">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Inn" ColumnName="Inn" />
+                <ScalarProperty Name="Kpp" ColumnName="Kpp" />
+                <ScalarProperty Name="RS" ColumnName="RS" />
+                <ScalarProperty Name="Bic" ColumnName="Bic" />
+                <ScalarProperty Name="Ks" ColumnName="Ks" />
+                <ScalarProperty Name="Kbk" ColumnName="Kbk" />
+                <ScalarProperty Name="Okato" ColumnName="Okato" />
+                <ScalarProperty Name="KassFlag" ColumnName="KassFlag" />
+                <ScalarProperty Name="TaxPercent" ColumnName="TaxPercent" />
+                <ScalarProperty Name="TaxMin" ColumnName="TaxMin" />
+                <ScalarProperty Name="TaxMax" ColumnName="TaxMax" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocumentDictionary">
+            <EntityTypeMapping TypeName="IRCDICTIONARYModel.DocumentDictionary">
+              <MappingFragment StoreEntitySet="DocumentDictionary">
+                <ScalarProperty Name="NUMBER" ColumnName="NUMBER" />
+                <ScalarProperty Name="DOCUMENT" ColumnName="DOCUMENT" />
+                <ScalarProperty Name="Key_id" ColumnName="Key_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KASSESDB_">
+            <EntityTypeMapping TypeName="IRCDICTIONARYModel.KASSESDB_">
+              <MappingFragment StoreEntitySet="KASSESDB$">
+                <ScalarProperty Name="ID_SYST" ColumnName="ID_SYST" />
+                <ScalarProperty Name="NP" ColumnName="NP" />
+                <ScalarProperty Name="PACHKA" ColumnName="PACHKA" />
+                <ScalarProperty Name="SC" ColumnName="SC" />
+                <ScalarProperty Name="KOMIS_S_KL" ColumnName="KOMIS_S_KL" />
+                <ScalarProperty Name="PART" ColumnName="PART" />
+                <ScalarProperty Name="CITY" ColumnName="CITY" />
+                <ScalarProperty Name="CLOSE" ColumnName="CLOSE" />
+                <ScalarProperty Name="AVTOSALON" ColumnName="AVTOSALON" />
+                <ScalarProperty Name="IsOKVKU" ColumnName="IsOKVKU" />
+                <ScalarProperty Name="PACHKA_VNESH" ColumnName="PACHKA_VNESH" />
+                <ScalarProperty Name="TRANZIT_VNESH" ColumnName="TRANZIT_VNESH" />
+                <ScalarProperty Name="NDS_KOMISS" ColumnName="NDS_KOMISS" />
+                <ScalarProperty Name="NDS_SCH" ColumnName="NDS_SCH" />
+                <ScalarProperty Name="VALUT_SCH" ColumnName="VALUT_SCH" />
+                <ScalarProperty Name="VALUT_SCH_E" ColumnName="VALUT_SCH_E" />
+                <ScalarProperty Name="ROSMED" ColumnName="ROSMED" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FilialId" ColumnName="FilialId" />
+                <ScalarProperty Name="KOMISS_P" ColumnName="KOMISS_P" />
+                <ScalarProperty Name="KOMISS_SC" ColumnName="KOMISS_SC" />
+                <ScalarProperty Name="PACHKA_VNUT" ColumnName="PACHKA_VNUT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KassSymbol">
+            <EntityTypeMapping TypeName="IRCDICTIONARYModel.KassSymbol">
+              <MappingFragment StoreEntitySet="KassSymbol">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+                <ScalarProperty Name="Key_id" ColumnName="Key_id" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KLIENTS">
+            <EntityTypeMapping TypeName="IRCDICTIONARYModel.KLIENTS">
+              <MappingFragment StoreEntitySet="KLIENTS">
+                <ScalarProperty Name="NUMBER" ColumnName="NUMBER" />
+                <ScalarProperty Name="FAMILIYA" ColumnName="FAMILIYA" />
+                <ScalarProperty Name="IMYA" ColumnName="IMYA" />
+                <ScalarProperty Name="OTCHESTVO" ColumnName="OTCHESTVO" />
+                <ScalarProperty Name="GOROD" ColumnName="GOROD" />
+                <ScalarProperty Name="ULICA" ColumnName="ULICA" />
+                <ScalarProperty Name="DOM" ColumnName="DOM" />
+                <ScalarProperty Name="KVARTIRA" ColumnName="KVARTIRA" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+                <ScalarProperty Name="PASPORT_S" ColumnName="PASPORT_S" />
+                <ScalarProperty Name="PASPORT_N" ColumnName="PASPORT_N" />
+                <ScalarProperty Name="BIRTHDAY" ColumnName="BIRTHDAY" />
+                <ScalarProperty Name="DiasoftId" ColumnName="DiasoftId" />
+                <ScalarProperty Name="FULL_NAME" ColumnName="FULL_NAME" />
+                <ScalarProperty Name="FULL_ADRES" ColumnName="FULL_ADRES" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KODPL">
+            <EntityTypeMapping TypeName="IRCDICTIONARYModel.KODPL">
+              <MappingFragment StoreEntitySet="KODPL">
+                <ScalarProperty Name="KOD" ColumnName="KOD" />
+                <ScalarProperty Name="USLUGA" ColumnName="USLUGA" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PACHKA">
+            <EntityTypeMapping TypeName="IRCDICTIONARYModel.PACHKA">
+              <MappingFragment StoreEntitySet="PACHKA">
+                <ScalarProperty Name="PACHKA1" ColumnName="PACHKA" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="ROSMED" ColumnName="ROSMED" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SpecSymbol">
+            <EntityTypeMapping TypeName="IRCDICTIONARYModel.SpecSymbol">
+              <MappingFragment StoreEntitySet="SpecSymbol">
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaxPeriod">
+            <EntityTypeMapping TypeName="IRCDICTIONARYModel.TaxPeriod">
+              <MappingFragment StoreEntitySet="TaxPeriod">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Period" ColumnName="Period" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaxReason">
+            <EntityTypeMapping TypeName="IRCDICTIONARYModel.TaxReason">
+              <MappingFragment StoreEntitySet="TaxReason">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Reason" ColumnName="Reason" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RosmedProduct">
+            <EntityTypeMapping TypeName="IRCDICTIONARYModel.RosmedProduct">
+              <MappingFragment StoreEntitySet="RosmedProduct">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Series" ColumnName="Series" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
